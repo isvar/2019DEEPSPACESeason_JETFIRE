@@ -55,11 +55,6 @@ public class OI {
     mav_LB.whenPressed(new CameraTurretCommand(20));
     mav_RB.whenPressed(new CameraTurretCommand(180));
 
-    // Manual Elevator Control
-    /*mav_RB.whileHeld(new ElevatorUpCommand());
-    mav_LB.whileHeld(new ElevatorDownCommand());*/
-
-
     // Controlator Controls //
     // Pneumatics Control
     nav_LB.whenPressed(new FlorCommand());
@@ -71,11 +66,10 @@ public class OI {
     nav_A.whileHeld(new CargoInCommand());
     nav_X.whileHeld(new CargoLeftCommand());
 
-    // ELevator 2
+    // ELevator Control
     nav_LSClick.whileHeld(new ElevatorUpCommand());
     nav_Select.whileHeld(new ElevatorStaticCommand());
     nav_RSClick.whileHeld(new ElevatorDownCommand());
-
   }
 
   public Joystick getManejator() {
