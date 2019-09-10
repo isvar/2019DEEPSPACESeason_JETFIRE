@@ -112,12 +112,6 @@ public void Drive(Joystick manejator) {
     m_Drive.arcadeDrive(RobotMap.manejator.getRawAxis(1)*maxY, rotationValue*maxX);
   }  
 
-  // NavX Yaw Reset
-  public void ResetYaw() {
-    NavX.zeroYaw();
-    getPIDController().disable();
-  }
-
   // Chassis Full Stop
   public void DriveStop() {
     m_Drive.arcadeDrive(0, 0);
@@ -126,7 +120,7 @@ public void Drive(Joystick manejator) {
 
   //Autonomous Test Routines
   public void Go(double distance) {
-    encoderAverage = (RobotMap.ChassisLeft.getDistance() + RobotMap.ChassisRight.getDistance()) / 2;
+    encoderAverage = (RobotMap.ChassisLeftEnc.getDistance() + RobotMap.ChassisRightEnc.getDistance()) / 2;
     if (distance > encoderAverage) {
       if (!getPIDController().isEnabled()) {
         rotate = 0;
@@ -141,7 +135,7 @@ public void Drive(Joystick manejator) {
   }
 
   public void GoBack(double distance) {
-    encoderAverage = (RobotMap.ChassisLeft.getDistance() + RobotMap.ChassisRight.getDistance()) / 2;
+    encoderAverage = (RobotMap.ChassisLeftEnc.getDistance() + RobotMap.ChassisRightEnc.getDistance()) / 2;
     if (distance > encoderAverage) {
       if (!getPIDController().isEnabled()) {
         rotate = 0;
