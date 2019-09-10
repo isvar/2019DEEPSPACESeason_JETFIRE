@@ -1,3 +1,4 @@
+
 /*----------------------------------------------------------------------------*/
 /* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
@@ -21,7 +22,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.DriveCommand;
-import frc.robot.commands.cgroups.autonomous.AutoOne;
 import frc.robot.subsystems.*;
 
 public class Robot extends TimedRobot {
@@ -30,14 +30,12 @@ public class Robot extends TimedRobot {
   public static Neumatica m_n = new Neumatica();
   public static Cargo m_cargo = new Cargo();
   public static Elevator m_elevator = new Elevator();
+  public static Misc m_misc = new Misc();
 
   public static double visionAngle;
 
   //Network Table Components
   public static NetworkTableEntry yaw_angle;
-
-  // Encoder Value
-  double pulRevChassis = (0.77272727266)*(12.5663706144)/360;
 
   public Robot() {
   }
@@ -61,11 +59,11 @@ public class Robot extends TimedRobot {
     RobotMap.Comp.setClosedLoopControl(true);
 
     // Encoder Setup
-    RobotMap.Elevator.setDistancePerPulse(0.07696902001);
-    RobotMap.ChassisLeft.setDistancePerPulse(pulRevChassis);
-    RobotMap.ChassisRight.setDistancePerPulse(pulRevChassis);
+    RobotMap.ElevatorEnc.setDistancePerPulse(RobotMap.pulRevElevator);
+    RobotMap.ChassisLeftEnc.setDistancePerPulse(RobotMap.pulRevChassis);
+    RobotMap.ChassisRightEnc.setDistancePerPulse(RobotMap.pulRevChassis);
 
-    // Camera Streaming
+    // Camera Streaming Configuration
     new Thread(() ->{
       UsbCamera camera = CameraServer.getInstance().startAutomaticCapture(0);
       camera.setResolution(320, 240 );
@@ -113,7 +111,7 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.start();
     }
-    RobotMap.Elevator.reset();
+    RobotMap.ElevatorEnc.reset();
   }
 
   @Override
@@ -127,9 +125,9 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
-    RobotMap.Elevator.reset();
-    RobotMap.ChassisLeft.reset();
-    RobotMap.ChassisRight.reset();
+    RobotMap.ElevatorEnc.reset();
+    RobotMap.ChassisLeftEnc.reset();
+    RobotMap.ChassisRightEnc.reset();
   }
 
   @Override
