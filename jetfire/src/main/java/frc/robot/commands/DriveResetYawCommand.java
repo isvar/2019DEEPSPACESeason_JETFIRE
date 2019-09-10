@@ -12,7 +12,7 @@ import frc.robot.Robot;
 
 public class DriveResetYawCommand extends Command {
   public DriveResetYawCommand() {
-    requires(Robot.m_chassis);
+    requires(Robot.m_misc);
   }
 
   @Override
@@ -21,7 +21,7 @@ public class DriveResetYawCommand extends Command {
 
   @Override
   protected void execute() {
-    Robot.m_chassis.ResetYaw();
+    Robot.m_misc.ResetYaw();
   }
 
   @Override
