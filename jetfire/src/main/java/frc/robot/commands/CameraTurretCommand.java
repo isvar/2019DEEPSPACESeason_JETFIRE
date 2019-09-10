@@ -15,7 +15,7 @@ public class CameraTurretCommand extends Command {
 double setAngle = 0;
 
   public CameraTurretCommand(double setP) {
-    requires(Robot.m_cargo);
+    requires(Robot.m_misc);
     this.setAngle = setP;
   }
 
