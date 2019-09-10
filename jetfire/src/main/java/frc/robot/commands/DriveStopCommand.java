@@ -22,8 +22,8 @@ public class DriveStopCommand extends Command {
 
   @Override
   protected void initialize() {
-    RobotMap.ChassisLeft.reset();
-    RobotMap.ChassisRight.reset();
+    RobotMap.ChassisLeftEnc.reset();
+    RobotMap.ChassisRightEnc.reset();
     Robot.m_chassis.encoderAverage = 0;
     timi.reset();
     timi.start();
