@@ -19,7 +19,7 @@ public class RobotMap {
   public static Joystick manejator = new Joystick(0);
   public static Joystick controlator = new Joystick(1);
   
-  // Speed controllers
+  // Motor controllers
   public static PWMVictorSPX DriveLeft = new PWMVictorSPX(0);
   public static PWMVictorSPX DriveRight = new PWMVictorSPX(1);
   public static PWMVictorSPX ElevatorRight = new PWMVictorSPX(5);
@@ -36,20 +36,17 @@ public class RobotMap {
   public static DoubleSolenoid Pist = new DoubleSolenoid(2, 3);
 
   //Encoders
-  public static Encoder ChassisLeft = new Encoder(0, 1, true, Encoder.EncodingType.k4X);
-  public static Encoder ChassisRight = new Encoder(2, 3, false, Encoder.EncodingType.k4X);
-  public static Encoder Elevator = new Encoder(4, 5, false, Encoder.EncodingType.k4X);
+  public static Encoder ChassisLeftEnc = new Encoder(0, 1, true, Encoder.EncodingType.k4X);
+  public static Encoder ChassisRightEnc = new Encoder(2, 3, false, Encoder.EncodingType.k4X);
+  public static Encoder ElevatorEnc = new Encoder(4, 5, false, Encoder.EncodingType.k4X);
 
   // Servo
   public static Servo CameraTurret = new Servo(4);
 
-  // Variables
-  public static double d1 = 67;
-  public static double a1 = 135;
-  public static double e1= 0;
-  public static double e2;
-  public static double e3;
-
-  // Camer Number
+  // Camera Number
   public static int server = 0;
+
+  // Encoder Values
+  public static double pulRevChassis = (0.77272727266)*(12.5663706144)/360;
+  public static double pulRevElevator = 0.07696902001;
 }
