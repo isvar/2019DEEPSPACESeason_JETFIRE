@@ -21,7 +21,7 @@ double setAngle = 0;
 
   @Override
   protected void initialize() {
-    Robot.m_cargo.ServoSet(setAngle);
+    Robot.m_misc.ServoSet(setAngle);
   }
 
   @Override
