@@ -21,7 +21,7 @@ public class ElevatorUpCommand extends Command {
 
   @Override
   protected void execute() {
-    Robot.m_elevator.ElevatorControl(Robot.m_oi.getControlator());
+    Robot.m_elevator.ElevatorMUp(Robot.m_oi.getControlator());
   }
 
   @Override
