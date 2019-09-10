@@ -17,7 +17,6 @@ public class Elevator extends PIDSubsystem {
 
   @Override
   public void initDefaultCommand() {
-    //setDefaultCommand(new ElevatorStaticCommand());
   }
 
   public Elevator() {
@@ -29,7 +28,7 @@ public class Elevator extends PIDSubsystem {
   }
 
   protected double returnPIDInput() {
-    return RobotMap.Elevator.getDistance();
+    return RobotMap.ElevatorEnc.getDistance();
   }
 
   protected void usePIDOutput(double output) {
@@ -37,15 +36,15 @@ public class Elevator extends PIDSubsystem {
   }
 
   // Move ELevator
-  public void ElevatorControl(Joystick controlator) {
-    RobotMap.ElevatorLeft.set(/*RobotMap.controlator.getRawAxis(1) **/ 0.7);
-    RobotMap.ElevatorRight.set(/*RobotMap.controlator.getRawAxis(1) **/ -0.7);
+  public void ElevatorMUp(Joystick controlator) {
+    RobotMap.ElevatorLeft.set(0.7);
+    RobotMap.ElevatorRight.set(-0.7);
     getPIDController().disable();
   }
 
-  public void ElevatorControl2(Joystick controlator) {
-    RobotMap.ElevatorLeft.set(/*RobotMap.controlator.getRawAxis(1) **/ -0.15);
-    RobotMap.ElevatorRight.set(/*RobotMap.controlator.getRawAxis(1) **/ 0.15);
+  public void ElevatorMDown(Joystick controlator) {
+    RobotMap.ElevatorLeft.set(-0.15);
+    RobotMap.ElevatorRight.set(0.15);
     getPIDController().disable();
   }
 
