@@ -72,5 +72,4 @@ public class Neumatica extends Subsystem {
       pist = false;
     }
   }
-
 }

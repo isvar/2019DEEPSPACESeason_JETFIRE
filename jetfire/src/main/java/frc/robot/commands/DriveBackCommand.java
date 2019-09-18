@@ -24,8 +24,8 @@ public class DriveBackCommand extends Command {
 
   @Override
   protected void initialize() {
-    RobotMap.ChassisLeft.reset();
-    RobotMap.ChassisRight.reset();
+    RobotMap.ChassisLeftEnc.reset();
+    RobotMap.ChassisRightEnc.reset();
     Robot.m_chassis.encoderAverage = 0;
     tim.reset();
     tim.start();

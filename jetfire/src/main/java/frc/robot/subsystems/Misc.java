@@ -5,37 +5,28 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
+package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
-public class ElevatorUpCommand extends Command {
-  public ElevatorUpCommand() {
-    requires(Robot.m_elevator);
-  }
+public class Misc extends Subsystem {
 
   @Override
-  protected void initialize() {
+  public void initDefaultCommand() {
   }
+    // Camera Controls
+    public void ServoSet(double angle) {
+      RobotMap.CameraTurret.setAngle(angle);
+    }
+    public void ServoStop() {
+      RobotMap.CameraTurret.set(0);
+    }
 
-  @Override
-  protected void execute() {
-    Robot.m_elevator.ElevatorMUp(Robot.m_oi.getControlator());
+    // NavX Yaw Reset
+    public void ResetYaw() {
+      Robot.m_chassis.NavX.zeroYaw();
+      Robot.m_chassis.getPIDController().disable();
   }
-
-  @Override
-  protected boolean isFinished() {
-    return false;
   }
-
-  @Override
-  protected void end() {
-    Robot.m_elevator.ElevatorStop();
-  }
-
-  @Override
-  protected void interrupted() {
-    end();
-  }
-}

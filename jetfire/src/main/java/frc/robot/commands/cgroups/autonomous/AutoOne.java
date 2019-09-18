@@ -10,13 +10,12 @@ package frc.robot.commands.cgroups.autonomous;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.commands.*;
 //import frc.robot.commands.cgroups.*;
-import frc.robot.RobotMap;
 
 public class AutoOne extends CommandGroup {
   public AutoOne() {
-    addSequential(new DriveGoCommand(RobotMap.d1));
+    addSequential(new DriveGoCommand(10));
     addSequential(new DriveStopCommand());
-    addSequential(new FlorC());
+    addSequential(new FlorCommand());
     addSequential(new DriveBackCommand(10));
     /*addSequential(new DriveTurnCommand(RobotMap.a1));
     addSequential(new DriveGoCommand(RobotMap.d2));

@@ -12,10 +12,9 @@ import frc.robot.commands.*;
 
 public class HPSetGroup extends CommandGroup {
   public HPSetGroup() {
-   // addSequential(new DriveTurnCommand(Robot.m_chassis.visionAngle));
+    addSequential(new DriveTurnCommand(Robot.visionAngle));
     addSequential(new DriveGoCommand(10));
     addSequential(new FlorC());
     addSequential(new DriveGoCommand(-10));
-
   }
 }

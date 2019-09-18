@@ -14,7 +14,6 @@ public class Cargo extends Subsystem {
 
   @Override
   public void initDefaultCommand() {
-    // setDefaultCommand(new MySpecialCommand());
   }
 
   // Grab Cargo
@@ -35,23 +34,15 @@ public class Cargo extends Subsystem {
     RobotMap.RollerLeft.set(-0.6);
   }
 
-    // Release Cargo Left
-    public void RollLeft() {
-      RobotMap.RollerRight.set(-0.6);
-      RobotMap.RollerLeft.set(0.35);
-    }
+   // Release Cargo Left
+   public void RollLeft() {
+     RobotMap.RollerRight.set(-0.6);
+     RobotMap.RollerLeft.set(0.35);
+   }
 
-    // Cargo Stop
-    public void RollStop() {
-      RobotMap.RollerRight.set(0);
-      RobotMap.RollerLeft.set(0);
-    }
-
-    public void ServoSet(double angle) {
-      RobotMap.CameraTurret.setAngle(angle);
-    }
-
-    public void ServoStop() {
-      RobotMap.CameraTurret.set(0);
-    }
+   // Cargo Stop
+   public void RollStop() {
+     RobotMap.RollerRight.set(0);
+     RobotMap.RollerLeft.set(0);
+   }
   }

@@ -15,13 +15,13 @@ public class CameraTurretCommand extends Command {
 double setAngle = 0;
 
   public CameraTurretCommand(double setP) {
-    requires(Robot.m_cargo);
+    requires(Robot.m_misc);
     this.setAngle = setP;
   }
 
   @Override
   protected void initialize() {
-    Robot.m_cargo.ServoSet(setAngle);
+    Robot.m_misc.ServoSet(setAngle);
   }
 
   @Override
